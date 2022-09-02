@@ -1,0 +1,61 @@
+﻿@model IEnumerable<LMS.Models.LoanEligibility>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blue;">Loan Eligibility Criteria</h1>
+</center>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color:cyan;">
+            <th>
+                @Html.DisplayNameFor(model => model.LoanType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfEmployment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthlyIncome)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr style="background-color:darkgrey;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoanType.LoanName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfEmployment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyIncome)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LoanEligibilityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LoanEligibilityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LoanEligibilityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

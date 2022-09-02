@@ -1,0 +1,115 @@
+﻿@model IEnumerable<LMS.Models.LoanType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+    <h1 style="color:blue;">Available Loans List</h1>
+</center>
+
+
+@foreach (var item in Model)
+
+{
+
+    <div style="box-shadow:0px 0px 10px red;padding:20px;border-radius:10px;margin-top:20px;">
+        <table>
+            <tr>
+                <td>
+                    <em><b style="color:brown;font-size:30px;"> @Html.DisplayFor(model => item.LoanName)</b></em>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label><b>Details :</b></label>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Details)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label><b>Minimum Loan Amount :</b></label>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MinimumAmount)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label><b>Maximum Loan Amount :</b></label>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaximumAmount)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label><b>Loan Given To :</b></label>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LoanGivenTo)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label><b>Guaranters Required :</b></label>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumberOfGuaranters)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="Users" asp-controller="LoanEligibilities" asp-action="Index">Loan Eligibility</a> |
+                    <a asp-area="Users" asp-controller="LoanApplications" asp-action="Create">Apply Loan</a>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+}
+<br />
+
+

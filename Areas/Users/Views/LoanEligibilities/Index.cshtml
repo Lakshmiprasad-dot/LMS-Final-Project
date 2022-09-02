@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LMS.Models.LoanEligibility>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blue;">Loan Eligibility</h1>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfEmployment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthlyIncome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfEmployment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanType.LoanName)
+            </td>
+            <td>
+                    <a asp-area="Users" asp-controller="LoanApplications" asp-action="Create">Apply Loan</a> 
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

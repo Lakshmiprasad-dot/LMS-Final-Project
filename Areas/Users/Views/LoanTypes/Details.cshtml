@@ -1,0 +1,54 @@
+﻿@model LMS.Models.LoanType
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LoanType</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoanName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoanName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MinimumAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MinimumAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaximumAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaximumAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoanGivenTo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoanGivenTo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfGuaranters)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfGuaranters)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LoanId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

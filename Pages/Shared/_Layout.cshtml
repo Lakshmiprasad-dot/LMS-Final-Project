@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LoanManagementSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-image: url('/Images/back.jpg');
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <img src="~/Images/logo.svg" style="width200px;height:100px;" />
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index"><b style="font-size:20px;padding:20px;margin-top:30px;">Home</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy"><b style="font-size:20px;padding:20px;margin-top:30px;">Privacy</b></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><b style="font-size:20px;padding:20px;margin-top:30px;color:black;">Admin</b></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                   asp-area="Admins" asp-controller="LoanTypes" asp-action="Index">Loan Plans</a>
+                                <a class="dropdown-item"
+                                   asp-area="Admins" asp-controller="RateOfInterests" asp-action="Index">Interests List for loan</a>
+                                <a class="dropdown-item"
+                                   asp-area="Admins" asp-controller="LoanEligibilities" asp-action="Index">Loan Eligibility Criteria</a>
+                                <a class="dropdown-item"
+                                   asp-area="Admins" asp-controller="LoanApplications" asp-action="Index">Loan Applications  List </a>
+                                <a class="dropdown-item"
+                                   asp-area="Admins" asp-controller="ApplicationStatus" asp-action="Index">Applications Status </a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><b style="font-size:20px;padding:20px;color:black;">User</b></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                   asp-area="Users" asp-controller="LoanTypes" asp-action="Index">Available Loans</a>
+                                 <a class="dropdown-item"
+                                  asp-area="Users" asp-controller="LoanEligibilities" asp-action="Index">Loan Eligibility Criteria</a>
+                                <a class="dropdown-item"
+                                   asp-area="Users" asp-controller="RateOfInterests" asp-action="Index">Loan Rate Of Interests</a>
+                                <a class="dropdown-item"
+                                   asp-area="Users" asp-controller="LoanApplications" asp-action="Create">Apply Loan</a>
+                                <a class="dropdown-item"
+                                   asp-area="Users" asp-controller="LoanApplications" asp-action="Index">Loan Applications</a>
+                                <a class="dropdown-item"
+                                   asp-area="Users" asp-controller="ApplicationStatus" asp-action="Index">Application status</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - LoanManagementSystem - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <a href="/swagger">Open API Documentation</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

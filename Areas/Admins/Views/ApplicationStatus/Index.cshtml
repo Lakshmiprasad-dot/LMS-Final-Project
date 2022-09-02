@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LMS.Models.ApplicationStatus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blue;">Application Status</h1>
+</center>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color:thistle;">
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanApplication)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr style="background-color:silver;">
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanApplication.ApplicationHolderName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AplicationStatusId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AplicationStatusId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AplicationStatusId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<LMS.Models.ApplicationStatus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blue;">Loan Status</h1>
+</center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanApplication)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+           
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanApplication.ApplicationHolderName)
+            </td>
+            <td>
+                
+                
+            </td>
+        </tr>
+            
+}
+    </tbody>
+</table>
