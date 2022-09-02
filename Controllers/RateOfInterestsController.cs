@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Models;
+using Microsoft.Extensions.Logging;
 
 namespace LMS.Controllers
 {
@@ -15,10 +16,14 @@ namespace LMS.Controllers
     public class RateOfInterestsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<RateOfInterestsController> _logger;
 
-        public RateOfInterestsController(ApplicationDbContext context)
+        public RateOfInterestsController(
+            ApplicationDbContext context,
+            ILogger<RateOfInterestsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/RateOfInterests
@@ -88,7 +93,7 @@ namespace LMS.Controllers
 
         // DELETE: api/RateOfInterests/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<RateOfInterest>> DeleteRateOfInterest(int id)
+        public async Task<IActionResult> DeleteRateOfInterest(int? id)
         {
             var rateOfInterest = await _context.RateOfInterests.FindAsync(id);
             if (rateOfInterest == null)
@@ -99,7 +104,7 @@ namespace LMS.Controllers
             _context.RateOfInterests.Remove(rateOfInterest);
             await _context.SaveChangesAsync();
 
-            return rateOfInterest;
+            return (IActionResult)rateOfInterest;
         }
 
         private bool RateOfInterestExists(int id)
